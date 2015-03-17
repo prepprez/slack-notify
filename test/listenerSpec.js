@@ -34,7 +34,7 @@ describe('The listener', function(){
         }
         return Promise.reject();
       });
-      stream.emit('data', 'DONE');
+      stream.emit('data', {value: 'DONE'});
     });
   });
 
