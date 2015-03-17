@@ -1,0 +1,18 @@
+machine:
+  services:
+    - docker
+  environment:
+    DOCKER_EMAIL: deploy@blikk.co
+    DOCKER_USER: blikkdeploy
+
+dependencies:
+  pre:
+    - docker login -e $DOCKER_EMAIL  -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker build -t blikk/slack-notify-service .
+    - docker tag  blikk/slack-notify-service:latest  blikk/slack-notify-service:$CIRCLE_SHA1
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker push  blikk/slack-notify-service

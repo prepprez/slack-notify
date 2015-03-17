@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/blikkhq/slack-notify-service/issues"
   },
-  "homepage": "https://github.com/blikkhq/slack-notify-service"
+  "homepage": "https://github.com/blikkhq/slack-notify-service",
+  "dependencies": {
+    "blikk-slack-notifier": "git://github.com/blikkhq/slack-notifier-js.git",
+    "bluebird": "^2.9.14",
+    "confluent-kafka-client": "git://github.com/blikkhq/confluent-kafka-client-js",
+    "dotenv": "^1.0.0",
+    "blikk-logjs": "git://github.com/blikkhq/logjs",
+    "sinon": "^1.14.1"
+  }
 }
