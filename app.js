@@ -3,7 +3,7 @@
 require('dotenv').load();
 var confluentClient = require('confluent-kafka-client');
 var listenerFactory = require('./lib/listenerFactory');
-var log = require('blikk-logjs');
+var log = require('blikk-logjs')('slack-notify-service-main');
 
 if(!process.env.CONFLUENT_ENDPOINT){
   log.error('You must set the CONFLUENT_ENDPOINT environment variable.');
@@ -14,7 +14,7 @@ confluentClient.setHost(process.env.CONFLUENT_ENDPOINT);
 // Greenlight Twitter Links 
 // ==================================================
 
-listenerFactory.createListener({
+listenerFactory.createListenerAsync({
   pollInterval: 1000,
   topic: 'gl-twitter-links',
   slackWebhookUri: process.env.GL_TWITTER_LINKS_SLACK_WEBHOOK_URI,
@@ -26,4 +26,8 @@ listenerFactory.createListener({
       username: 'Twitter Article Discovery'
     };
   }
+}).then(function(listener){
+  listener.start();
+}).catch(function(error){
+  log.error({err: error});
 });
