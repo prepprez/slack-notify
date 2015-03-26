@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon app.js 2>&1 | bunyan",
     "start": "node app.js",
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha"
   },
   "repository": {
     "type": "git",
