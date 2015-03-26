@@ -1,6 +1,6 @@
 {
   "name": "slack-notify-service",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Listens to interesting data streams and posts messages to Slack.",
   "main": "app.js",
   "scripts": {

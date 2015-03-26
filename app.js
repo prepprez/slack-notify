@@ -53,7 +53,8 @@ listenerPromises.push(listenerFactory.createListenerAsync({
         fields: [
           { title: 'Site', value: record.site, short: true },
           { title: 'Date', value: record.date, short: true }
-        ]
+        ],
+        unfurl_links: false
       }]
     };
   }
