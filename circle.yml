@@ -2,6 +2,7 @@ machine:
   services:
     - docker
   environment:
+    LOG_NAME: slack-notify-ci
     DOCKER_EMAIL: deploy@blikk.co
     DOCKER_USER: blikkdeploy
     VERSION: 0.2.0
