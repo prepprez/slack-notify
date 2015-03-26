@@ -39,7 +39,7 @@ listenerPromises.push(listenerFactory.createListenerAsync({
   slackWebhookUri: process.env.SLACK_WEBHOOK_ARTICLES_URI,
   transform: function(record){
     return {
-      text: 'Added new article <' + record.url +'>',
+      text: 'I added a new article!',
       unfurl_links: false,
       icon_emoji: ':page_facing_up:',
       username: 'CMS Article Bot',
