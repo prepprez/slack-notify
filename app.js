@@ -20,7 +20,7 @@ if(!process.env.KAFKA_REST_ENDPOINT){
 var listenerPromises = [];
 
 listenerPromises.push(listenerFactory.createListenerAsync({
-  pollInterval: 2500,
+  pollInterval: 5000,
   topic: 'gl-twitter-links',
   slackWebhookUri: process.env.SLACK_WEBHOOK_LINKS_URI,
   transform: function(record){
