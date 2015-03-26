@@ -1,8 +1,6 @@
 'use strict';
 
-if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'){
-  require('dotenv').load();  
-}
+process.env.LOG_NAME = 'slack-notify-service-test';
 
 var EventEmitter = require('events').EventEmitter;
 var Promise = require('bluebird');
