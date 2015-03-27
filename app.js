@@ -8,6 +8,7 @@ var _ = require('underscore');
 var Promise = require('bluebird');
 var listenerFactory = require('./lib/listenerFactory');
 var log = require('blikk-logjs')('slack-notify-service-main');
+var transformer = require('./contentChangeTransformer');
 
 if(!process.env.KAFKA_REST_ENDPOINT){
   log.error('You must set the KAFKA_REST_ENDPOINT environment variable.');
@@ -35,28 +36,10 @@ listenerPromises.push(listenerFactory.createListenerAsync({
 
 listenerPromises.push(listenerFactory.createListenerAsync({
   pollInterval: 15000,
-  topic: 'gl-article-content',
-  slackWebhookUri: process.env.SLACK_WEBHOOK_ARTICLES_URI,
+  topic: 'gl-content-changes',
+  slackWebhookUri: process.env.SLACK_WEBHOOK_CONTENT_CHANGE_URI,
   transform: function(record){
-    return {
-      text: 'I added a new article!',
-      unfurl_links: false,
-      icon_emoji: ':page_facing_up:',
-      username: 'CMS Article Bot',
-      attachments: [{
-        author_name: record.author || record.site,
-        title: record.title,
-        title_link: record.url,
-        text: record.description,
-        image_url: record.image,
-        color: '#e74c3c',
-        fields: [
-          { title: 'Site', value: record.site, short: true },
-          { title: 'Date', value: record.date, short: true }
-        ],
-        unfurl_links: false
-      }]
-    };
+    return transformer.transform(record);
   }
 }));
 
