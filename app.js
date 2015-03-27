@@ -4,11 +4,10 @@ if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'){
   require('dotenv').load();  
 }
 
-var _ = require('underscore');
 var Promise = require('bluebird');
 var listenerFactory = require('./lib/listenerFactory');
 var log = require('blikk-logjs')('slack-notify-service-main');
-var transformer = require('./contentChangeTransformer');
+var transformer = require('./lib/contentChangeTransformer');
 
 if(!process.env.KAFKA_REST_ENDPOINT){
   log.error('You must set the KAFKA_REST_ENDPOINT environment variable.');
