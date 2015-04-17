@@ -5,7 +5,7 @@ machine:
     LOG_NAME: slack-notify-ci
     DOCKER_EMAIL: deploy@blikk.co
     DOCKER_USER: blikkdeploy
-    VERSION: 0.3.2
+    VERSION: 0.3.3
 
 dependencies:
   pre:
