@@ -1,12 +1,12 @@
 {
   "name": "slack-notify-service",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "Listens to interesting data streams and posts messages to Slack.",
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=development node app.js 2>&1 | bunyan",
     "start": "node app.js",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test LOG_NAME=test mocha"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   "dependencies": {
     "blikk-logjs": "^0.1.2",
     "blikk-slack-notifier": "git://github.com/blikkhq/slack-notifier-js.git",
-    "bluebird": "^2.9.14",
+    "bluebird": "^3.0.14",
     "dotenv": "^1.0.0",
     "kafka-rest": "git://github.com/confluentinc/kafka-rest-node",
     "lodash": "^3.7.0",
