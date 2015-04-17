@@ -5,11 +5,11 @@ var t = require('../lib/contentChangeTransformer');
 
 describe('Content Transfomer', function(){
 
-  describe('#handleContentAddedEvent', function(){
+  describe('#handleContentCreatedEvent', function(){
 
     it('should work', function(){
-      var result = t.handleContentAddedEvent({
-        description: 'Content added',
+      var result = t.handleContentCreatedEvent({
+        description: 'Content created',
         data: JSON.stringify({
           newRecord: {
             emptyArray: [],
