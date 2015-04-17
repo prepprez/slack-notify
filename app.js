@@ -38,7 +38,6 @@ listenerPromises.push(listenerFactory.createListenerAsync({
   topic: 'gl-content-changes',
   slackWebhookUri: process.env.SLACK_WEBHOOK_CONTENT_CHANGE_URI,
   transform: function(record){
-    log.info(record);
     return transformer.transform(record);
   }
 }));
