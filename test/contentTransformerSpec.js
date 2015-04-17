@@ -23,22 +23,12 @@ describe('Content Transfomer', function(){
       });
       
       expect(result.attachments[0].fields.length).to.eql(4);
-
-      expect(result.attachments[0].fields[0]).to.eql(
-        { title: 'stringArray', value: 'Hello, World', short: true }
-      );
-
-      expect(result.attachments[0].fields[1]).to.eql(
-        { title: 'string', value: 'Hello World', short: true }
-      );
-
-      expect(result.attachments[0].fields[2]).to.eql(
-        { title: 'number', value: 123, short: true }
-      );
-
-      expect(result.attachments[0].fields[3]).to.eql(
+      expect(result.attachments[0].fields).to.eql([
+        { title: 'stringArray', value: 'Hello, World', short: true },
+        { title: 'string', value: 'Hello World', short: true },
+        { title: 'number', value: 123, short: true },
         { title: 'object', value: JSON.stringify({hello: 'World'}), short: true }
-      );      
+      ]);      
 
     });
 
