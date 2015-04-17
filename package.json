@@ -1,10 +1,10 @@
 {
   "name": "slack-notify-service",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Listens to interesting data streams and posts messages to Slack.",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon app.js 2>&1 | bunyan",
+    "dev": "NODE_ENV=development node app.js 2>&1 | bunyan",
     "start": "node app.js",
     "test": "NODE_ENV=test mocha"
   },
@@ -24,7 +24,7 @@
     "bluebird": "^2.9.14",
     "dotenv": "^1.0.0",
     "kafka-rest": "git://github.com/confluentinc/kafka-rest-node",
-    "sinon": "^1.14.1",
-    "underscore": "^1.8.2"
+    "lodash": "^3.7.0",
+    "sinon": "^1.14.1"
   }
 }
