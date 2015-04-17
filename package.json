@@ -25,5 +25,8 @@
     "kafka-rest": "git://github.com/confluentinc/kafka-rest-node",
     "lodash": "^3.7.0",
     "sinon": "^1.14.1"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0"
   }
 }
